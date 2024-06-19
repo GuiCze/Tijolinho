@@ -42,7 +42,7 @@
         const container = document.querySelector('.grid-container');
         let brick=[]
         for(i=0;i<97;i++){
-            brick.push(i+101,i+401)
+            brick.push(i+101,i+501)
             i+=5
         }
         // Configuração do grid
@@ -67,7 +67,7 @@
         container.children[position].classList.add('centro');
         container.children[position-1].classList.add('lateral');
         container.children[position+1].classList.add('lateral');
-        let pong = 890;
+        let pong = 587;
         let P;
         let del=false
         function move() {
@@ -86,7 +86,7 @@
                 }
                 if(lat>0)//indo para direita
                 {   
-                    for(i=98;i<101;i++)
+                    for(i=99;i<101;i++)
                     {
                         if(brick.includes(pong-i))//colisão na parte de baixo
                         {
@@ -108,7 +108,7 @@
                         P=brick.indexOf(pong+102)
                         del=true;
                     }
-                    for(i=199;i<202;i++)//colisão superior
+                    for(i=199;i<201;i++)//colisão superior
                     {
                         if(brick.includes(pong+i))
                         {
@@ -116,6 +116,21 @@
                             P=brick.indexOf(pong+i)
                             del=true
                         }
+                    }
+                    if(brick.includes(pong+202)&&dir>0)
+                    {
+                        dir=-dir
+                        lat=-lat
+                        P=brick.indexOf(pong+202)
+                        del=true
+                    }
+                    
+                    if(brick.includes(pong-98))
+                    {
+                        dir=-dir
+                        lat=-lat
+                        P=brick.indexOf(pong-98)
+                        del=true
                     }
                 }
                 if(lat<0)
@@ -128,28 +143,35 @@
                     }
                     if(brick.includes(pong+98))
                     {
-                        dir=-dir;
+                        lat=-lat
                         P=brick.indexOf(pong+98)
                         del=true
                     }
-                    for(i=198;i<202;i++)//colisão superior
+                    for(i=199;i<201;i++)//colisão superior
                     {
-                        if(brick.includes(pong+i)&&dir<)
+                        if(brick.includes(pong+i))
                         {
                             dir=-dir;
                             P=brick.indexOf(pong+i)
                             del=true
                         }
                     }
-                    for(i=98;i<103;i++)//colisão superior
+                    if(brick.includes(pong+198)&&dir>0)
                     {
-                        if(brick.includes(pong-i))
-                        {
-                            dir=-dir;
-                            P=brick.indexOf(pong-i)
-                            del=true
-                        }
+                        dir=-dir
+                        lat=-lat
+                        P=brick.indexOf(pong+198)
+                        del=true
                     }
+                    if(brick.includes(pong-101))
+                    {
+                        dir=-dir
+                        lat=-lat
+                        P=brick.indexOf(pong-101)
+                        del=true
+                    }
+                   
+                   
                     
                 }
                
@@ -189,11 +211,11 @@
                 lat=-lat;
             }
             if(pong%100==0){
-                lat=Math.abs(lat);
+                lat=-lat;
             }
             if(pong<100)
             {
-                dir=Math.abs(dir);
+                dir=-dir
             }
     
             
@@ -201,7 +223,7 @@
 
         
         // Velocidade da bola
-        setInterval(move, 500);;
+        setInterval(move, 100);;
 
         // Evento que le a tecla apertada pelo usuario
         document.addEventListener('keydown', (event) => {
