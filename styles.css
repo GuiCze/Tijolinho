@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(100, 10px);
+    grid-template-rows: repeat(60, 10px);
+    gap: 0px;
+    border: 2px solid #333;
+    background-color: lightgrey;
+}
+
+.grid {
+    width: 10px;
+    height: 10px;
+    background-color: lightgrey;
+}
+
+.centro {
+    background-color: grey;
+}
+
+.lateral {
+    background-color: grey;
+}
+
+.bola {
+    background-color: black;
+    border-radius: 50%;
+}
+
+.tijolo {
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    
+}
