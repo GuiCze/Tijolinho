@@ -63,10 +63,10 @@
         let lat = 1
         let ang = 0;
         // Posição inicial da bola
-        let position = 4961;
+        let position = 3561;
         container.children[position].classList.add('centro');
-        container.children[position-1].classList.add('lateral');
-        container.children[position+1].classList.add('lateral');
+        container.children[position-1].classList.add('lateral');//tamanho da raquete para a esquerda
+        container.children[position+1].classList.add('lateral');//tamanho da raquete para a direita
         let pong = 587;
         let P;
         let del=false
@@ -231,13 +231,12 @@
             
         container.children[pong].classList.add('bola');
 
-        // Movimento da raquete
+        // Movimento da raquete 4999 é o limite do mapa , caso a raquete seja maior que 1 posição deve ser ajustado o limite
         
 
             if (key === 'd') {
                 if (position < 4998) { 
-                    container.children[position-1].classList.remove('centro','lateral');
-                    
+                    container.children[position-1].classList.remove('centro','lateral');//caso a raquete seja modificada, deve ser modificado o valor entre parenteses
                     position++;
                     container.children[position+1].classList.add('lateral');
                     
